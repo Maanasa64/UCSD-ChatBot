@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCSD Chatbot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://lh3.googleusercontent.com/p/AF1QipOWsGyf8MjMK3Q0ymVNERdvEhqtsVAhIK9vNCBw=s1360-w1360-h1020');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            opacity: 0.9;
+        }
+        h1 {
+            color: #003DA5;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        #chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+        }
+        #response {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        #message {
+            width: calc(100% - 22px);
+            height: 60px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #003DA5;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #FCD200;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        .chat-bubble {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        .user-bubble {
+            background-color: #A4D8E1;
+            margin-left: auto;
+        }
+        .response-bubble {
+            background-color: #D0E1F9;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById('message').value;
+            if (!message.trim()) return;
+
+            // Create user chat bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user-bubble';
+            userBubble.innerText = message;
+            document.getElementById('response').appendChild(userBubble);
+            document.getElementById('response').scrollTop = document.getElementById('response').scrollHeight;
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message }),
+            });
+            const data = await response.json();
+
+            // Create response chat bubble
+            const responseBubble = document.createElement('div');
+            responseBubble.className = 'chat-bubble response-bubble';
+            responseBubble.innerText = data.response;
+            document.getElementById('response').appendChild(responseBubble);
+            document.getElementById('response').scrollTop = document.getElementById('response').scrollHeight;
+
+            document.getElementById('message').value = '';
+        }
+
+        // Add event listener to send message on Enter key press
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageInput = document.getElementById('message');
+            messageInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>UCSD Chatbot</h1>
+        <div id="response"></div>
+        <div style="display: flex; align-items: center;">
+            <textarea id="message" placeholder="Type your message here..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</body>
+</html>
