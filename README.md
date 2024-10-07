@@ -2,6 +2,8 @@
 
 UCSD ChatBot is a simple web-based chatbot designed to answer UCSD-related questions. This project uses Python's Flask framework for the backend and HTML/CSS for the frontend. The bot communicates through a conversational interface, providing users with answers to various questions about UC San Diego.
 
+<img width="1470" alt="image" src="https://github.com/user-attachments/assets/2273565c-e8d7-46d3-8658-3c0cdab8e2f3">
+
 ## Features
 
 - Conversational interface for UCSD-related queries
