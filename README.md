@@ -43,6 +43,7 @@ To run this project, you will need the following installed:
 5. **Run the application:**
 
    You can run the app locally using Flask's built-in development server:
+   
    `python ucsd_chatbot.py`
 
    The app should now be running locally.
