@@ -7,8 +7,6 @@ app = Flask(__name__)
 
 API_KEY = os.getenv("API_KEY")
 
-print(API_KEY)
-
 client = Groq(api_key=API_KEY)
 
 @app.route('/')
