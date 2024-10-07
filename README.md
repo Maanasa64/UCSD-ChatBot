@@ -21,7 +21,7 @@ To run this project, you will need the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/UCSD-ChatBot.git
+   git clone https://github.com/Maanasa64/UCSD-ChatBot.git
    cd UCSD-ChatBot
 
 2. **Install dependencies:**
