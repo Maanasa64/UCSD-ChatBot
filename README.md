@@ -34,13 +34,14 @@ To run this project, you will need the following installed:
 
    Refer to https://console.groq.com/docs/quickstart#create-an-api-key.
    
-   Store your API key in the local-data/info file. You can also add your key as an environment variable by running:
+   Add your key as an environment variable by running:
    
    `export API_KEY='your-api-key-here'`
 
-   Ensure that the local-data/ directory is added to .gitignore to prevent your API key from being committed to version control.
+   Optional: To make it easier to manage your environment variables, you can use `direnv`. This tool allows you to automatically set environment variables when you enter a specific          directory.
 
-5. **Run the application:**
+
+6. **Run the application:**
 
    You can run the app locally using Flask's built-in development server:
    
