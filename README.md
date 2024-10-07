@@ -22,7 +22,7 @@ To run this project, you will need the following installed:
 
    ```bash
    git clone https://github.com/your-username/UCSD-ChatBot.git
-   cd UCSD-ChatBot```
+   cd UCSD-ChatBot
 
 2. **Install dependencies:**
 
