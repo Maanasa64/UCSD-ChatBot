@@ -32,7 +32,7 @@ To run this project, you will need the following installed:
 
 4. **Add your API Key:**
 
-   Create your API Key by going to https://console.groq.com/keys.
+   Refer to https://console.groq.com/docs/quickstart#create-an-api-key.
    
    Store your API key in the local-data/info file. You can also add your key as an environment variable by running:
    
